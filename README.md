@@ -6,4 +6,9 @@ _使用 NodeJS 定时发送邮件_
 
 _参考来自_ [Vincedream](https://github.com/Vincedream/NodeMail.git)
 
-未完......
+**配置文件在 config 目录中**
+
+```
+npm install
+npm start
+```
