@@ -33,15 +33,15 @@ let mojiWeather = ($) => { //  墨迹天气提示 以及 未来三天天气预�
 };
 
 let get = () => {
-    moji.getElement().then($ => {
+    return moji.getElement().then($ => {
         return mojiWeather($);
     }).catch(err => {
         console.log(err);
-        get(); //catch 再次请求
+        return get(); //catch 再次请求
     });
 };
 
-module.exports = get;
+module.exports = get();
 
 
 

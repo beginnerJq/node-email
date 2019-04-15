@@ -14,12 +14,12 @@ let oneData = ($) => {
 };
 
 let get = () => {
-    one.getElement().then($ => {
-        console.log(oneData($));
+    return one.getElement().then($ => {
+        return oneData($);
     }).catch(err => {
         console.log(err);
-        get(); // 重新获取
+        return get(); // 重新获取
     });
 };
 
-module.exports = get;
+module.exports = get();

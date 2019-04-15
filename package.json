@@ -12,6 +12,8 @@
   "dependencies": {
     "art-template": "^4.13.2",
     "cheerio": "^1.0.0-rc.3",
+    "inline-css": "^2.4.1",
+    "koa": "^2.7.0",
     "koa-art-template": "^1.1.1",
     "node-schedule": "^1.3.2",
     "nodemailer": "^6.1.0",

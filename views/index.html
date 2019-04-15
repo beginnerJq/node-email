@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>一封暖暖的邮件</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+      }
+
+      header {
+        width: 100%;
+        margin: 40px auto;
+        font-size: 20px;
+        color: #5f5e5e;
+        text-align: center;
+      }
+
+      header .lastday {
+        font-size: 24px;
+        color: rgb(221, 73, 73);
+      }
+
+      section {
+        width: 100%;
+        margin: 0 auto;
+        color: #5f5e5e;
+        text-align: center;
+      }
+
+      section .weatherTip {
+        color: #676767;
+        font-size: 20px;
+        text-align: center;
+      }
+
+      section .forecast {
+        margin-top: 15px;
+        color: #676767;
+        font-size: 15px;
+        text-align: center;
+      }
+
+      section .threeDay {
+        display: -ms-grid;
+        display: grid;
+        -ms-grid-rows: 30px;
+        grid-template-rows: 30px;
+        -ms-grid-columns: 15% 25% 25% 35%;
+        grid-template-columns: 15% 25% 25% 35%;
+        place-items: center;
+        line-height: 30px;
+      }
+
+      section .threeDay > *:nth-child(1) {
+        -ms-grid-row: 1;
+        -ms-grid-column: 1;
+      }
+
+      section .threeDay > *:nth-child(2) {
+        -ms-grid-row: 1;
+        -ms-grid-column: 2;
+      }
+
+      section .threeDay > *:nth-child(3) {
+        -ms-grid-row: 1;
+        -ms-grid-column: 3;
+      }
+
+      section .threeDay > *:nth-child(4) {
+        -ms-grid-row: 1;
+        -ms-grid-column: 4;
+      }
+
+      section .threeDay img {
+        vertical-align: middle;
+      }
+
+      h5 {
+        margin-top: 50px;
+        color: #676767;
+        text-align: center;
+      }
+
+      footer {
+        display: -ms-grid;
+        display: grid;
+        place-items: center;
+        grid-row-gap: 10px;
+        margin: 20px 0;
+      }
+
+      footer .today {
+        font-size: 22px;
+        color: #9d9d9d;
+      }
+
+      footer img {
+        width: 100%;
+      }
+
+      footer .imgType {
+        color: #b0b0b0;
+        font-size: 13px;
+      }
+
+      footer .text {
+        width: 85%;
+        color: #5f5e5e;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <span>今天是我们在一起的第</span>
+      <span class="lastday"> {{ lastDay }} </span>
+      <span>天</span>
+    </header>
+    <section>
+      <p class="weatherTip">{{ moji[0] }}</p>
+      <p class="forecast">近期天气预报</p>
+      {{each moji[1]}}
+      <div class="threeDay">
+        <span>{{ $value.day }}</span>
+        <div>
+          <img height="26" src="{{ $value.img }}" alt="天气" />
+          <span>{{ $value.text }}</span>
+        </div>
+        <span>{{ $value.temperature }}</span>
+        <div>
+          <span style="color: {{ pollutionLevel[$value.pollutionLevel] }}">{{
+            $value.pollution
+          }}</span>
+        </div>
+      </div>
+      {{/each}}
+    </section>
+
+    <h5>ONE · 一个</h5>
+    <footer>
+      <span class="today">{{ today }}</span>
+      <img src="{{ one.imgUrl }}" alt="one" />
+      <span class="imgType">{{ one.type }}</span>
+      <div class="text">{{ one.text }}</div>
+    </footer>
+  </body>
+</html>
