@@ -7,10 +7,10 @@ let EmianService = "QQ";
 //发送者邮箱账户SMTP授权码
 let EamilAuth = {
     user: "xxx@qq.com",
-    pass: "xxx"
+    pass: "xxxxx"
 };
 //发送者昵称与邮箱地址
-let EmailFrom = '"xxx" <xxx@qq.com>';
+let EmailFrom = '"jiangqi" <xxx@qq.com>';
 
 //接收者邮箱地
 let EmailTo = "xxx@qq.com";

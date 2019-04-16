@@ -12,9 +12,6 @@ let {
 } = require('../config');
 let moji = require('../getdata/moji.js');
 let one = require('../getdata/one.js');
-let today = new Date();
-let lastDay = Math.floor((today - new Date(startDay)) / 1000 / 60 / 60 / 24); // 天数
-today = `${today.getFullYear()} / ${today.getMonth() + 1} / ${today.getDate()}`;
 
 let pollutionLevel = {
     level_1: '#8fc31f',
@@ -26,9 +23,13 @@ let pollutionLevel = {
 }
 
 let post = async () => {
+    let today = new Date();
+    let lastDay = Math.floor((today - new Date(startDay)) / 1000 / 60 / 60 / 24); // 天数
+    today = `${today.getFullYear()} / ${today.getMonth() + 1} / ${today.getDate()}`;
+
     let html = template(join(__dirname, '..', 'views/index.html'), {
-        moji: await moji,
-        one: await one,
+        moji: await moji(),
+        one: await one(),
         lastDay,
         today,
         pollutionLevel

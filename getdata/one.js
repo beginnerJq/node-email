@@ -22,4 +22,4 @@ let get = () => {
     });
 };
 
-module.exports = get();
+module.exports = get;
