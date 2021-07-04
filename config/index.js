@@ -6,20 +6,18 @@ let startDay = "2017/03/05";
 let EmianService = "QQ";
 //发送者邮箱账户SMTP授权码
 let EamilAuth = {
-    user: "xxx@qq.com",
-    pass: "xxxxx"
+    user: "1292692959@qq.com",
+    pass: process.argv[2] || ""
 };
 //发送者昵称与邮箱地址
-let EmailFrom = '"jiangqi" <xxx@qq.com>';
+let EmailFrom = '"jiangqi" <1292692959@qq.com>';
 
 //接收者邮箱地
-let EmailTo = "xxx@qq.com";
+let EmailTo = "1064490167@qq.com";
 
 //邮件主题
 let EmailSubject = "一封暖暖的邮件";
 
-let hour = 5;
-let minute = 20;
 module.exports = {
     weatherURL,
     oneURL,
@@ -29,6 +27,4 @@ module.exports = {
     EmailFrom,
     EmailTo,
     EmailSubject,
-    hour,
-    minute
 }

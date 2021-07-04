@@ -12,6 +12,7 @@
       body {
         margin: 0;
         padding: 0;
+        width: 100vw;
         width: 100%;
       }
 
@@ -51,36 +52,16 @@
       section .threeDay {
         display: -ms-grid;
         display: grid;
-        -ms-grid-rows: 30px;
-        grid-template-rows: 30px;
-        -ms-grid-columns: 15% 25% 25% 35%;
-        grid-template-columns: 15% 25% 25% 35%;
+        grid-template-rows: 36px;
+        /* grid-template-columns: 15% 25% 25% 35%; */
+        grid-template-columns: repeat(4, minmax(0, 1fr));
         place-items: center;
-        line-height: 30px;
-      }
-
-      section .threeDay > *:nth-child(1) {
-        -ms-grid-row: 1;
-        -ms-grid-column: 1;
-      }
-
-      section .threeDay > *:nth-child(2) {
-        -ms-grid-row: 1;
-        -ms-grid-column: 2;
-      }
-
-      section .threeDay > *:nth-child(3) {
-        -ms-grid-row: 1;
-        -ms-grid-column: 3;
-      }
-
-      section .threeDay > *:nth-child(4) {
-        -ms-grid-row: 1;
-        -ms-grid-column: 4;
       }
 
       section .threeDay img {
-        vertical-align: middle;
+        width: 26px;
+        height: 26px;
+        vertical-align: bottom;
       }
 
       h5 {

@@ -8,6 +8,9 @@ on:
     branches: [ gh-actions-schedule ]
   pull_request:
     branches: [ gh-actions-schedule ]
+  schedule:
+    # 定时任务，在每天的5点20推送天气信息到邮箱（UTC时间）
+    - cron: '20 21 * * *'
 
 jobs:
   build:
@@ -27,4 +30,4 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - run: npm install
-    - run: npm start
+    - run: node app.js ${{ secrets.PASS }}
