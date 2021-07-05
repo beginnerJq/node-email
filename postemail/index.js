@@ -31,8 +31,10 @@ let post = async () => {
     .then((res) => res.json())
     .then((json) => json.data.t);
 
-  let today = dayjs(timeStamp).locale('zh-cn').add(8, 'hours');
+  let today = dayjs(+timeStamp).locale('zh-cn');
+  
   console.log(today.format());
+
   let lastDay = Math.floor(
     (new Date(today.format()) - new Date(startDay)) / 1000 / 60 / 60 / 24
   ); // 天数
