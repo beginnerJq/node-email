@@ -17,6 +17,7 @@ let EmailFrom = '"jiangqi" <1292692959@qq.com>';
 
 //接收者邮箱地
 let EmailTo = '1064490167@qq.com';
+// let EmailTo = '1292692959@qq.com';
 
 //邮件主题
 let EmailSubject = '一封暖暖的邮件';

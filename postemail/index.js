@@ -1,4 +1,5 @@
 const nodemailer = require('nodemailer'); //发送邮件的node插件
+const dayjs = require('dayjs');
 const template = require('art-template');
 const inlineCss = require('inline-css'); // 将css嵌入行内
 const { join } = require('path');
@@ -23,9 +24,9 @@ let pollutionLevel = {
 }
 
 let post = async () => {
-    let today = new Date();
-    let lastDay = Math.floor((today - new Date(startDay)) / 1000 / 60 / 60 / 24); // 天数
-    today = `${today.getFullYear()} / ${today.getMonth() + 1} / ${today.getDate()}`;
+    let today = dayjs().locale('zh-cn');
+    let lastDay = Math.floor((new Date(today.format()) - new Date(startDay)) / 1000 / 60 / 60 / 24); // 天数
+    today = `${today.year()} / ${today.month() + 1} / ${today.date()}`;
 
     let html = template(join(__dirname, '..', 'views/index.html'), {
         moji: await moji(),
