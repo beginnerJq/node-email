@@ -1,5 +1,6 @@
 const nodemailer = require('nodemailer'); //发送邮件的node插件
 const dayjs = require('dayjs');
+const fetch = require('node-fetch');
 const template = require('art-template');
 const inlineCss = require('inline-css'); // 将css嵌入行内
 const { join } = require('path');
@@ -24,7 +25,13 @@ let pollutionLevel = {
 };
 
 let post = async () => {
-  let today = dayjs().locale('zh-cn');
+  const timeStamp = await fetch(
+    'http://api.m.taobao.com/rest/api3.do?api=mtop.common.getTimestamp'
+  )
+    .then((res) => res.json())
+    .then((json) => json.data.t);
+
+  let today = dayjs(timeStamp).locale('zh-cn').add(8, 'hours');
   console.log(today.format());
   let lastDay = Math.floor(
     (new Date(today.format()) - new Date(startDay)) / 1000 / 60 / 60 / 24
