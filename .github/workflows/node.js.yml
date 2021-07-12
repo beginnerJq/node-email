@@ -10,7 +10,7 @@ on:
   #   branches: [ gh-actions-schedule ]
   schedule:
     # 定时任务，在每天的5点20推送天气信息到邮箱（UTC时间）
-    - cron: '05 21 * * *'
+    - cron: '04 21 * * *'
 
 jobs:
   build:
